@@ -8,7 +8,7 @@
         {{ bread.title }}
       </div>
       <div class="item item-image">
-        <img ng-src="{{bread.img}}" alt="">
+        <img class="new-bread" ng-style="{'background-image': 'url(data:image/png;base64,' + bread.img + ')'}" alt="">
       </div>
     </div>
   </ion-content>

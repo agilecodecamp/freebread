@@ -23,7 +23,41 @@ app.factory('breads', [function () {
     });
   }
 
+  function set (newBread, callback) {
+    var Bread = Parse.Object.extend('Bread');
+    var bread = new Bread();
+
+    if (!newBread.title) {
+      callback(null, {
+        style: 'assertive',
+        message: 'You need input some title'
+      });
+      return;
+    } else if (!newBread.img) {
+      callback(null, {
+        style: 'assertive',
+        message: 'You need select a photo'
+      });
+      return;
+    }
+
+    bread.save(
+      newBread, {
+        success: function (savedbread) {
+          callback(savedbread.toJSON(), {
+            style: 'positive',
+            message: 'Upload success'
+          });
+        },
+        error: function (savedbread, error) {
+          error.style = 'assertive';
+          callback(null, error);
+        }
+    });
+  }
+
   return {
-    getBreads: get
+    getBreads: get,
+    addBread: set
   };
 }]);

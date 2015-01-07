@@ -1,26 +1,31 @@
 <ion-view>
+
   <ion-nav-buttons side="left">
     <button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
     <h1 class="title">new free bread</h1>
-    <button class="button button-clear">Post</button>
   </ion-nav-buttons>
+
   <ion-content>
+
+    <div class="card" ng-show="result.message" ng-click="clear()">
+      <div class="item item-text-wrap" ng-class="result.style" ng-bind="result.message"></div>
+    </div>
+
     <div class="card">
+
       <label class="item item-input item-stacked-label">
         <span class="input-label">Title</span>
-        <input type="text">
+        <input type="text" ng-model="breadData.title" placeholder="title about bread">
       </label>
-      <div class="item" ng-hide="breadData.img">
-        add a photo ...
-      </div>
-      <div class="item item-image new-bread" ng-show="breadData.img" ng-style="{'background-image': 'url(data:image/png;base64,' + breadData.img + ')'}">
-      </div>
+
+      <div class="item item-image new-bread" ng-style="{'background-image': 'url(data:image/png;base64,' + breadData.img + ')'}"></div>
+
     </div>
+
+    <div class="button-bar padding-horizontal">
+      <button class="button button-block" ng-click="getPhoto('take')" ng-bind="buttonText"></button>
+      <button class="button button-block button-positive" ng-click="save(breadData)">Post</button>
+    </div>
+
   </ion-content>
-  <ion-footer-bar class="bar-stable">
-    <div class="button-bar">
-      <button class="button button-clear button-positive" ng-click="getPhoto('pick')">Pick a Photo</button>
-      <button class="button button-clear button-positive" ng-click="getPhoto('take')">Take a Photo</button>
-    </div>
-  </ion-footer-bar>
 </ion-view>
