@@ -1,0 +1,9 @@
+/* Empty. Add your own CSS if you like */
+.new-bread {
+	-webkit-background-size: contain;
+	     -o-background-size: contain;
+	        background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 280px;
+}
