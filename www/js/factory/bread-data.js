@@ -1,4 +1,4 @@
-app.factory('breads', [function () {
+app.factory('breads', ['$timeout', function ($timeout) {
   var skipNumber = 0;
   var limitNumber = 10;
   
@@ -26,17 +26,18 @@ app.factory('breads', [function () {
   function set (newBread, callback) {
     var Bread = Parse.Object.extend('Bread');
     var bread = new Bread();
-
+    var result = {
+        style: 'assertive'      
+    };
     if (!newBread.title) {
-      callback(null, {
-        style: 'assertive',
-        message: 'You need input some title'
-      });
-      return;
+      result.message =  'You need input some title';
     } else if (!newBread.img) {
-      callback(null, {
-        style: 'assertive',
-        message: 'You need select a photo'
+      result.message =  'You need select a photo';
+    }
+
+    if (result.message) {
+      $timeout(function () {
+        callback(null, result);
       });
       return;
     }

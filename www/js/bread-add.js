@@ -20,23 +20,24 @@ app.controller('addBreadCtrl', ['$scope', 'cameraFactory', 'breads', function ($
       }
     });
   }
-
   $scope.getPhoto = getPhoto;
 
   function save (bread) {
     $scope.result = {};
     breads.addBread(bread, function whenDone (bread, result) {
       $scope.result = result;
+      $scope.showResult = !$scope.showResult;
+      if (result.style === 'positive') {
+      	$scope.breadData = {};
+      }
       $scope.$digest();
     });
   }
-
   $scope.save = save;
 
   function clear () {
-    $scope.result = {};
+    $scope.showResult = !$scope.showResult;
   }
-
   $scope.clear = clear;
 
 }]);

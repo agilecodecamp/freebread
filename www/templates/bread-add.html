@@ -6,11 +6,7 @@
   </ion-nav-buttons>
 
   <ion-content>
-
-    <div class="card" ng-show="result.message" ng-click="clear()">
-      <div class="item item-text-wrap" ng-class="result.style" ng-bind="result.message"></div>
-    </div>
-
+    
     <div class="card">
 
       <label class="item item-input item-stacked-label">
@@ -20,6 +16,10 @@
 
       <div class="item item-image new-bread" ng-style="{'background-image': 'url(data:image/png;base64,' + breadData.img + ')'}"></div>
 
+    </div>
+    
+    <div class="card card-remove-effect ng-hide" ng-show="showResult" ng-click="clear()">
+      <div class="item item-text-wrap" ng-class="result.style" ng-bind="result.message"></div>
     </div>
 
     <div class="button-bar padding-horizontal">
