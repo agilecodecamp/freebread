@@ -7,7 +7,7 @@ app.factory('breads', ['$timeout', function ($timeout) {
     var query = new Parse.Query(Bread);
     query.skip(skipNumber);
     query.limit(limitNumber);
-    query.descending('updateAt');
+    query.descending('updatedAt');
     query.find({
       success: function(breads) {
         var datas = [];
