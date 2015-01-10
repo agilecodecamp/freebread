@@ -45,5 +45,5 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
       }
     });
 
-  $urlRouterProvider.otherwise('/app/add');
+  $urlRouterProvider.otherwise('/app/list');
 }]);
