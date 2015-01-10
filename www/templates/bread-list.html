@@ -1,6 +1,8 @@
-<ion-view view-title="freebread">
+<ion-view>
   <ion-nav-buttons side="left">
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    <div class="title">freebread</div>
+    <button class="button button-icon icon ion-refresh" ng-click="reload()"></button>
   </ion-nav-buttons>
 	<ion-content>
     <div class="card" ng-cloak ng-repeat="bread in breads">

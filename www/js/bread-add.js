@@ -1,4 +1,4 @@
-app.controller('addBreadCtrl', ['$scope', 'cameraFactory', 'breads', function ($scope, cameraFactory, breads) {
+app.controller('addBreadCtrl', ['$scope', '$window', 'cameraFactory', 'breads', function ($scope, $window, cameraFactory, breads) {
 
   $scope.breadData = {};
 
@@ -39,5 +39,10 @@ app.controller('addBreadCtrl', ['$scope', 'cameraFactory', 'breads', function ($
     $scope.showResult = !$scope.showResult;
   }
   $scope.clear = clear;
+
+  $scope.$on('$locationChangeSuccess', function (scope, next, current) {
+  	$scope.showResult = false;
+  	$scope.breadData = {};
+  });
 
 }]);
